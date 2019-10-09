@@ -1,0 +1,41 @@
+﻿@model IEnumerable<FixtureApp.Data.Match>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<form method="post">
+    <button asp-controller="Match" asp-action="Index">Schedule Match</button>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Team A 
+            </th>
+            <th>
+               Team B
+            </th>
+            <th>
+                Date
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamLeft.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamRight.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MatchDate)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
